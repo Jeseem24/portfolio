@@ -1,29 +1,21 @@
 'use client';
 
-import { useRef, useState, useEffect } from 'react';
+import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import {
   Mail,
   Github,
   Linkedin,
   Instagram,
-  Send,
   ArrowUpRight,
   MessageSquare,
-  Loader2,
-  CheckCircle,
+  Send,
 } from 'lucide-react';
 import TiltCard from '../effects/TiltCard';
 
 export default function ContactSection() {
   const email = 'jeseem.502329@sxcce.edu.in';
   const sectionRef = useRef<HTMLDivElement>(null);
-  
-  // Form State
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [formError, setFormError] = useState('');
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -31,37 +23,10 @@ export default function ContactSection() {
   });
   const bgY = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setFormError('');
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) throw new Error('Failed to send message');
-      
-      setIsSuccess(true);
-      setFormData({ name: '', email: '', message: '' });
-      
-      // Reset success state after a few seconds
-      setTimeout(() => setIsSuccess(false), 5000);
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setFormError('Something went wrong. Please try again or email me directly.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   const socials = [
     { name: 'GitHub', icon: Github, href: 'https://github.com/Jeseem24', color: '#FFFFFF', description: 'Check out my code' },
     { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/jeseem24/', color: '#0A66C2', description: 'Connect professionally' },
-    { name: 'Instagram', icon: Instagram, href: 'https://instagram.com/jeseem._', color: '#E4405F', description: '@jeseem._' },
+    { name: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/jeseem._/', color: '#E1306C', description: '@jeseem._' },
     { name: 'Email', icon: Mail, href: `mailto:${email}`, color: '#00D4FF', description: 'Drop me a line' },
   ];
 
@@ -149,110 +114,44 @@ export default function ContactSection() {
           ))}
         </div>
 
-        {/* Interactive Contact Form */}
+        {/* Direct Email CTA */}
         <motion.div
-          className="max-w-2xl mx-auto mb-16 relative"
+          className="max-w-3xl mx-auto mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <form onSubmit={handleSubmit} className="space-y-6 bg-white/[0.02] border border-white/10 rounded-3xl p-8 glass-strong shadow-2xl relative overflow-hidden group/form">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#00D4FF]/5 to-transparent opacity-0 group-hover/form:opacity-100 transition-opacity duration-700 pointer-events-none" />
-            
-            <div className="flex flex-col md:flex-row gap-6">
-              <div className="relative group flex-1">
-                <input
-                  type="text"
-                  id="name"
-                  value={formData.name}
-                  onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                  disabled={isSubmitting || isSuccess}
-                  className="w-full bg-black/40 border border-white/10 rounded-xl px-4 pt-6 pb-2 text-white outline-none focus:border-[#00D4FF] focus:bg-[#00D4FF]/5 transition-all peer disabled:opacity-50"
-                  placeholder=" "
-                  required
-                />
-                <label
-                  htmlFor="name"
-                  className="absolute left-4 top-4 text-gray-500 text-sm transition-all peer-focus:-translate-y-2 peer-focus:text-xs peer-focus:text-[#00D4FF] peer-valid:-translate-y-2 peer-valid:text-xs peer-valid:text-gray-400 pointer-events-none"
-                >
-                  Your Name
-                </label>
-                <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-[#00D4FF] to-[#0066FF] peer-focus:w-full transition-all duration-500" />
-              </div>
-
-              <div className="relative group flex-1">
-                <input
-                  type="email"
-                  id="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                  disabled={isSubmitting || isSuccess}
-                  className="w-full bg-black/40 border border-white/10 rounded-xl px-4 pt-6 pb-2 text-white outline-none focus:border-[#00D4FF] focus:bg-[#00D4FF]/5 transition-all peer disabled:opacity-50"
-                  placeholder=" "
-                  required
-                />
-                <label
-                  htmlFor="email"
-                  className="absolute left-4 top-4 text-gray-500 text-sm transition-all peer-focus:-translate-y-2 peer-focus:text-xs peer-focus:text-[#00D4FF] peer-valid:-translate-y-2 peer-valid:text-xs peer-valid:text-gray-400 pointer-events-none"
-                >
-                  Email Address
-                </label>
-                <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-[#00D4FF] to-[#0066FF] peer-focus:w-full transition-all duration-500" />
-              </div>
-            </div>
-
-            <div className="relative group">
-              <textarea
-                id="message"
-                rows={4}
-                value={formData.message}
-                onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
-                disabled={isSubmitting || isSuccess}
-                className="w-full bg-black/40 border border-white/10 rounded-xl px-4 pt-6 pb-2 text-white outline-none focus:border-[#00D4FF] focus:bg-[#00D4FF]/5 transition-all peer resize-none disabled:opacity-50"
-                placeholder=" "
-                required
-              />
-              <label
-                htmlFor="message"
-                className="absolute left-4 top-4 text-gray-500 text-sm transition-all peer-focus:-translate-y-2 peer-focus:text-xs peer-focus:text-[#00D4FF] peer-valid:-translate-y-2 peer-valid:text-xs peer-valid:text-gray-400 pointer-events-none"
-              >
-                Project Details or Message
-              </label>
-              <div className="absolute bottom-1.5 left-0 h-[2px] rounded-b-xl w-0 bg-gradient-to-r from-[#00D4FF] to-[#0066FF] peer-focus:w-full transition-all duration-500" />
-            </div>
-
-            {formError && (
-              <p className="text-red-400 text-sm text-center font-medium animate-pulse">
-                {formError}
-              </p>
-            )}
-
-            <button
-              type="submit"
-              disabled={isSubmitting || isSuccess}
-              className={`w-full group/btn relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl text-white font-semibold text-lg overflow-hidden transition-all duration-300 ${isSuccess ? 'bg-emerald-500' : 'bg-gradient-to-r from-[#0066FF] to-[#00D4FF] hover:shadow-[0_0_40px_rgba(0,212,255,0.4)] hover:scale-[1.02] active:scale-[0.98]'
-                } disabled:pointer-events-none`}
+          <TiltCard intensity={5} className="w-full">
+            <a
+              href={`mailto:${email}`}
+              className="group block relative overflow-hidden rounded-3xl p-8 md:p-12 glass shadow-2xl transition-all duration-500 hover:shadow-[0_0_50px_rgba(0,212,255,0.2)]"
             >
-              {isSubmitting ? (
-                <>
-                  <Loader2 className="w-5 h-5 animate-spin relative z-10" />
-                  <span className="relative z-10">Sending...</span>
-                </>
-              ) : isSuccess ? (
-                <>
-                  <CheckCircle className="w-5 h-5 relative z-10" />
-                  <span className="relative z-10">Message Sent!</span>
-                </>
-              ) : (
-                <>
-                  <span className="relative z-10">Send Message</span>
-                  <Send className="w-5 h-5 relative z-10 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#00D4FF] to-[#FF0055] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500" />
-                </>
-              )}
-            </button>
-          </form>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#00D4FF]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+              
+              <div className="flex flex-col items-center justify-center text-center">
+                <motion.div
+                  className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#0066FF] to-[#00D4FF] flex items-center justify-center mb-6 shadow-lg shadow-[#00D4FF]/20"
+                  whileHover={{ rotate: 10, scale: 1.1 }}
+                >
+                  <Mail className="w-10 h-10 text-white" />
+                </motion.div>
+                
+                <h3 className="text-3xl md:text-5xl font-bold font-orbitron text-white mb-4">
+                  Start a <span className="gradient-text">Project</span>
+                </h3>
+                
+                <p className="text-gray-400 text-lg max-w-lg mb-8">
+                  My inbox is always open. Whether you have a question, a project proposal, or just want to say hi, I&apos;ll try my best to get back to you!
+                </p>
+
+                <div className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-semibold text-lg group-hover:bg-[#00D4FF]/10 group-hover:border-[#00D4FF]/30 transition-all duration-300">
+                  <span className="tracking-wide">Say Hello directly in your Mail App</span>
+                  <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                </div>
+              </div>
+            </a>
+          </TiltCard>
         </motion.div>
 
         {/* Fallback CTA */}
