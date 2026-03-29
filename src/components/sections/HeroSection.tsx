@@ -15,11 +15,11 @@ import Magnetic from '../effects/Magnetic';
 import HorizontalMarquee from '../effects/HorizontalMarquee';
 
 const roles = [
-  'Full Stack Developer',
-  'IoT Enthusiast',
-  'Mobile App Builder',
+  'AI-Augmented Developer',
+  'Prompt Engineer',
+  'Full Stack Orchestrator',
   'Problem Solver',
-  'Tech Explorer',
+  'LLM Integration Specialist',
 ];
 
 export default function HeroSection() {

@@ -7,29 +7,29 @@ import AnimatedCounter from '../effects/AnimatedCounter';
 
 const techCategories = [
   {
-    name: 'Languages',
-    items: ['Python', 'Java', 'C', 'JavaScript', 'HTML', 'CSS'],
+    name: 'AI Tooling',
+    items: ['Cursor', 'Prompt Engineering', 'ChatGPT / LLMs', 'GitHub Copilot'],
     gradient: 'from-[#0066FF] to-[#00D4FF]',
     color: '#0066FF',
-    count: 6,
+    count: 4,
   },
   {
-    name: 'Frameworks',
-    items: ['React', 'Node.js', 'Flutter', 'Next.js'],
+    name: 'Core Stack',
+    items: ['Next.js 14', 'React', 'Tailwind CSS', 'TypeScript'],
     gradient: 'from-[#00D4FF] to-[#0066FF]',
     color: '#00D4FF',
     count: 4,
   },
   {
-    name: 'Tools & Platforms',
-    items: ['Git', 'VS Code', 'Figma', 'GitHub'],
+    name: 'Backend & Cloud',
+    items: ['Firebase', 'REST APIs', 'Vercel', 'IoT Integrations'],
     gradient: 'from-[#FF3366] to-[#FF0055]',
     color: '#FF3366',
     count: 4,
   },
   {
-    name: 'Domains',
-    items: ['Web Development', 'Mobile Apps', 'IoT', 'UI/UX'],
+    name: 'Foundations',
+    items: ['UI/UX Design', 'Rapid Prototyping', 'Git', 'Responsive Layouts'],
     gradient: 'from-[#0066FF] to-[#FF0055]',
     color: '#00D4FF',
     count: 4,

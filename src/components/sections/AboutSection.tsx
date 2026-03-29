@@ -27,8 +27,8 @@ export default function AboutSection() {
 
   const stats = [
     { value: 2027, suffix: '', label: 'Graduating', prefix: '' },
-    { value: 10, suffix: '+', label: 'Technologies', prefix: '' },
-    { value: 2, suffix: '+', label: 'Major Projects', prefix: '' },
+    { value: 10, suffix: 'x', label: 'Faster Coding via AI', prefix: '' },
+    { value: 3, suffix: '+', label: 'AI LLMs Mastered', prefix: '' },
     { value: 5, suffix: '+', label: 'Hackathons', prefix: '' },
   ];
 
@@ -123,7 +123,7 @@ export default function AboutSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="space-y-5">
-              <motion.p
+              <motion.div
                 className="text-xl md:text-2xl text-white font-light leading-relaxed"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -134,43 +134,34 @@ export default function AboutSection() {
                 <span className="font-semibold gradient-text-blue">
                   Jeseem
                 </span>
-                , a{' '}
+                , an{' '}
                 <span className="text-[#00D4FF]">
-                  B.Tech Information Technology
+                  AI-Augmented Solutions Developer
                 </span>{' '}
-                student with a relentless drive to build things that matter.
-              </motion.p>
+                with a relentless drive to build things that matter.
+              </motion.div>
 
-              <motion.p
+              <motion.div
                 className="text-base md:text-lg text-gray-400 leading-relaxed"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
               >
-                From architecting full-stack web apps to designing IoT systems
-                and shipping mobile applications — I love the entire spectrum
-                of development. I don&apos;t just write code; I craft
-                experiences, solve real problems, and constantly push my own
-                limits.
-              </motion.p>
-
-              <motion.p
-                className="text-base md:text-lg text-gray-400 leading-relaxed"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 }}
-              >
-                Whether it&apos;s competing in hackathons under pressure,
-                picking up a new framework over a weekend, or debugging at 3
-                AM — I thrive when the challenge is real. Technology evolves
-                fast, and I make sure I evolve faster.
-              </motion.p>
+                <div className="space-y-6 md:space-y-8">
+                  <p className="text-gray-300 leading-relaxed text-base md:text-lg mt-4">
+                    I don&apos;t just write standard code; I orchestrate advanced AI to solve complex problems. By mastering AI-assisted development (like Cursor, GitHub Copilot, and LLMs), I bridge the gap between creative ideas and production-ready applications at incredible speed.
+                  </p>
+                  
+                  <p className="text-gray-400 leading-relaxed text-base md:text-lg">
+                    The modern engineering landscape isn&apos;t about memorizing syntax—it&apos;s about architectural thinking and precise prompt engineering. I leverage AI to rapidly prototype, debug, and scale robust Full Stack systems that would typically take teams months to build.
+                  </p>
+                </div>
+              </motion.div>
 
               {/* Signature line */}
               <motion.div
-                className="pt-3 flex items-center gap-4"
+                className="pt-3 flex items-center gap-4 mt-6"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -178,7 +169,7 @@ export default function AboutSection() {
               >
                 <div className="w-12 h-[2px] bg-gradient-to-r from-[#0066FF] to-[#00D4FF] rounded-full" />
                 <span className="text-gray-500 text-sm italic font-mono">
-                  Always building, always learning.
+                  Prompting carefully, shipping rapidly.
                 </span>
               </motion.div>
             </div>
