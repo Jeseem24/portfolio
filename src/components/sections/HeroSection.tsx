@@ -8,18 +8,23 @@ import {
   Instagram,
   ChevronDown,
   ArrowDown,
+  Code,
+  Smartphone,
+  Database,
+  Cpu,
+  Globe,
+  Terminal,
 } from 'lucide-react';
-import Image from 'next/image';
 import GlitchText from '../effects/GlitchText';
 import Magnetic from '../effects/Magnetic';
 import HorizontalMarquee from '../effects/HorizontalMarquee';
 
 const roles = [
-  'AI-Augmented Developer',
-  'Prompt Engineer',
-  'Full Stack Orchestrator',
+  'Full Stack Developer',
+  'IoT Enthusiast',
+  'Mobile App Builder',
   'Problem Solver',
-  'LLM Integration Specialist',
+  'Tech Explorer',
 ];
 
 export default function HeroSection() {
@@ -190,58 +195,6 @@ export default function HeroSection() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          {/* Headshot */}
-          <motion.div
-            className="flex justify-center mb-10"
-            initial={{ opacity: 0, scale: 0.5, y: 30 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{
-              delay: 0.3,
-              duration: 1,
-              type: 'spring',
-              stiffness: 200,
-            }}
-          >
-            <motion.div
-              className="relative w-44 h-44 md:w-52 md:h-52"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: 'spring', stiffness: 300 }}
-            >
-              {/* Animated ring */}
-              <motion.div
-                className="absolute -inset-[3px] rounded-full"
-                style={{
-                  background:
-                    'conic-gradient(from 0deg, #0066FF, #00D4FF, #FF0055, #FF3366, #0066FF)',
-                  padding: '3px',
-                }}
-                animate={{ rotate: 360 }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: 'linear',
-                }}
-              >
-                <div className="w-full h-full rounded-full bg-[#050508]" />
-              </motion.div>
-
-              {/* Photo */}
-              <div className="absolute inset-0 rounded-full overflow-hidden border-[3px] border-[#0A0A0A] shadow-[0_0_50px_rgba(0,102,255,0.2)]">
-                <Image
-                  src="/headshot.png"
-                  alt="Jeseem"
-                  fill
-                  quality={100}
-                  className="object-cover"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0066FF]/10 to-transparent mix-blend-overlay" />
-              </div>
-
-              {/* Cinematic Glow */}
-              <div className="absolute -inset-8 rounded-full bg-gradient-to-r from-[#0066FF]/20 via-transparent to-[#FF0055]/20 blur-3xl -z-10 opacity-60" />
-            </motion.div>
-          </motion.div>
 
           {/* Greeting */}
           <motion.p

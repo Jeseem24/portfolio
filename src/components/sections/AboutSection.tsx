@@ -27,8 +27,8 @@ export default function AboutSection() {
 
   const stats = [
     { value: 2027, suffix: '', label: 'Graduating', prefix: '' },
-    { value: 10, suffix: 'x', label: 'Faster Coding via AI', prefix: '' },
-    { value: 3, suffix: '+', label: 'AI LLMs Mastered', prefix: '' },
+    { value: 10, suffix: '+', label: 'Technologies', prefix: '' },
+    { value: 2, suffix: '+', label: 'Major Projects', prefix: '' },
     { value: 5, suffix: '+', label: 'Hackathons', prefix: '' },
   ];
 
@@ -64,22 +64,37 @@ export default function AboutSection() {
 
         {/* Content Grid */}
         <div className="grid lg:grid-cols-5 gap-10 lg:gap-14 items-center">
-          {/* Photo with morph animation */}
-          <motion.div className="lg:col-span-2 flex justify-center">
+          {/* Photo with morph animation and 3D layering */}
+          <motion.div className="lg:col-span-2 flex justify-center" style={{ perspective: '1000px' }}>
             <TiltCard
-              className="w-64 h-64 md:w-72 md:h-72 lg:w-80 lg:h-80"
-              intensity={12}
+              className="w-72 h-72 md:w-80 md:h-80 lg:w-[400px] lg:h-[400px] relative mt-10 lg:mt-0"
+              intensity={20}
             >
+              {/* Deep 3D Holographic Backdrop Layers */}
+              <div 
+                className="absolute inset-0 bg-gradient-to-br from-[#00D4FF]/20 to-[#0066FF]/20 rounded-3xl blur-sm border border-[#00D4FF]/30 transition-transform duration-300 pointer-events-none" 
+                style={{ transform: 'translateZ(-40px) scale(0.95)' }} 
+              />
+              <div 
+                className="absolute inset-0 bg-gradient-to-tl from-[#FF0055]/20 to-[#FF3366]/20 rounded-3xl blur-md border border-[#FF0055]/30 transition-transform duration-300 pointer-events-none" 
+                style={{ transform: 'translateZ(-80px) scale(0.85)' }} 
+              />
+
+              {/* Main Photo Container - Front Face */}
               <motion.div
-                className="relative w-full h-full overflow-hidden"
+                className="relative w-full h-full overflow-hidden shadow-[0_0_60px_rgba(0,102,255,0.4)]"
                 style={{
                   scale: photoScale,
                   opacity: photoOpacity,
                   y: photoY,
                   rotate: photoRotate,
                   borderRadius: photoBorderRadius,
+                  transform: 'translateZ(30px)',
                 }}
               >
+                {/* Glowing edge strip for the front face */}
+                <div className="absolute inset-0 rounded-3xl border border-[#00D4FF]/50 z-10 pointer-events-none" />
+
                 {/* Gradient border wrapper */}
                 <motion.div
                   className="absolute -inset-[3px] overflow-hidden"
@@ -97,18 +112,20 @@ export default function AboutSection() {
 
                 {/* Image */}
                 <motion.div
-                  className="absolute inset-0 overflow-hidden border-[1px] border-[#0A0A0A]"
+                  className="absolute inset-0 overflow-hidden border-[2px] border-[#0A0A0A]"
                   style={{ borderRadius: photoBorderRadius }}
                 >
                   <Image
                     src="/headshot_square.png"
                     alt="Jeseem"
-                    width={3080}
-                    height={3080}
-                    className="w-full h-full object-cover "
+                    width={1000}
+                    height={1000}
+                    quality={100}
+                    unoptimized={true}
+                    className="w-full h-full object-cover"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/30 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/40 via-transparent to-transparent" />
                 </motion.div>
               </motion.div>
             </TiltCard>
@@ -134,11 +151,11 @@ export default function AboutSection() {
                 <span className="font-semibold gradient-text-blue">
                   Jeseem
                 </span>
-                , an{' '}
+                , a{' '}
                 <span className="text-[#00D4FF]">
-                  AI-Augmented Solutions Developer
+                  B.Tech Information Technology
                 </span>{' '}
-                with a relentless drive to build things that matter.
+                student with a relentless drive to build things that matter.
               </motion.div>
 
               <motion.div
@@ -150,11 +167,11 @@ export default function AboutSection() {
               >
                 <div className="space-y-6 md:space-y-8">
                   <p className="text-gray-300 leading-relaxed text-base md:text-lg mt-4">
-                    I don&apos;t just write standard code; I orchestrate advanced AI to solve complex problems. By mastering AI-assisted development (like Cursor, GitHub Copilot, and LLMs), I bridge the gap between creative ideas and production-ready applications at incredible speed.
+                    From architecting full-stack web apps to designing IoT systems and shipping mobile applications — I love the entire spectrum of development. I don&apos;t just write code; I craft experiences, solve real problems, and constantly push my own limits.
                   </p>
                   
-                  <p className="text-gray-400 leading-relaxed text-base md:text-lg">
-                    The modern engineering landscape isn&apos;t about memorizing syntax—it&apos;s about architectural thinking and precise prompt engineering. I leverage AI to rapidly prototype, debug, and scale robust Full Stack systems that would typically take teams months to build.
+                  <p className="text-[#00D4FF]/80 leading-relaxed text-base md:text-lg italic font-medium">
+                    By combining strong architectural fundamentals with modern AI-assisted workflows, I rapidly build and iterate on scalable applications. Technology evolves fast, and I make sure I evolve faster.
                   </p>
                 </div>
               </motion.div>
@@ -169,7 +186,7 @@ export default function AboutSection() {
               >
                 <div className="w-12 h-[2px] bg-gradient-to-r from-[#0066FF] to-[#00D4FF] rounded-full" />
                 <span className="text-gray-500 text-sm italic font-mono">
-                  Prompting carefully, shipping rapidly.
+                  Always building, always learning.
                 </span>
               </motion.div>
             </div>

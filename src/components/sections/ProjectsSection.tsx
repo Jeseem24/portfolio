@@ -9,9 +9,9 @@ const projects = [
   {
     title: 'Smart Soil Analyzer & Crop Advisor',
     description:
-      'An IoT-powered system for comprehensive soil analysis and intelligent crop recommendations. Accelerated hardware-to-software integration by utilizing LLMs for Python data processing pipelines.',
-    tech: ['IoT', 'Sensors', 'Python', 'AI Prompts'],
-    role: 'AI & Systems Integrator',
+      'An IoT-powered system for comprehensive soil analysis and intelligent crop recommendations. Features real-time sensor integration and custom Python data processing pipelines.',
+    tech: ['IoT', 'Sensors', 'Python', 'Data Analysis'],
+    role: 'Solo Developer',
     icon: Cpu,
     gradient: 'from-[#0066FF] to-[#00D4FF]',
     color: '#0066FF',
@@ -21,9 +21,9 @@ const projects = [
   {
     title: 'Gaming Monitor System',
     description:
-      "A dual-app Flutter ecosystem for monitoring and managing children's gaming habits. Rapidly architected the cross-platform Dart logic and Firebase schemas using advanced AI-assisted coding tools.",
-    tech: ['Flutter', 'Firebase', 'Dart', 'Cursor'],
-    role: 'AI-Augmented Developer',
+      "A dual-app Flutter ecosystem for monitoring and managing children's gaming habits. Features real-time tracking, parental controls, and an insightful analytics dashboard.",
+    tech: ['Flutter', 'Firebase', 'Dart', 'Mobile'],
+    role: 'App Developer',
     icon: Smartphone,
     gradient: 'from-[#FF0055] to-[#FF3366]',
     color: '#FF0055',
