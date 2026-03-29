@@ -114,46 +114,6 @@ export default function ContactSection() {
           ))}
         </div>
 
-        {/* Direct Email CTA */}
-        <motion.div
-          className="max-w-3xl mx-auto mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          <TiltCard intensity={5} className="w-full">
-            <a
-              href={`mailto:${email}`}
-              className="group block relative overflow-hidden rounded-3xl p-8 md:p-12 glass shadow-2xl transition-all duration-500 hover:shadow-[0_0_50px_rgba(0,212,255,0.2)]"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#00D4FF]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-              
-              <div className="flex flex-col items-center justify-center text-center">
-                <motion.div
-                  className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#0066FF] to-[#00D4FF] flex items-center justify-center mb-6 shadow-lg shadow-[#00D4FF]/20"
-                  whileHover={{ rotate: 10, scale: 1.1 }}
-                >
-                  <Mail className="w-10 h-10 text-white" />
-                </motion.div>
-                
-                <h3 className="text-3xl md:text-5xl font-bold font-orbitron text-white mb-4">
-                  Start a <span className="gradient-text">Project</span>
-                </h3>
-                
-                <p className="text-gray-400 text-lg max-w-lg mb-8">
-                  My inbox is always open. Whether you have a question, a project proposal, or just want to say hi, I&apos;ll try my best to get back to you!
-                </p>
-
-                <div className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-semibold text-lg group-hover:bg-[#00D4FF]/10 group-hover:border-[#00D4FF]/30 transition-all duration-300">
-                  <span className="tracking-wide">Say Hello directly in your Mail App</span>
-                  <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                </div>
-              </div>
-            </a>
-          </TiltCard>
-        </motion.div>
-
         {/* Fallback CTA */}
         <motion.div
           className="text-center"
