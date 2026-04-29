@@ -42,6 +42,3 @@ Welcome to the open-source repository for my personal developer portfolio. This 
 
 Navigate your browser to `http://localhost:3000` to interact with the raw UI! 
 
-## 📝 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
