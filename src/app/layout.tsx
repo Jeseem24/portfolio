@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import { Inter, Orbitron, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
@@ -42,6 +43,12 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
+
+  // Google Search Console Verification
+  verification: {
+    google: "yuyJV5axbqJLWN7KFXEih_5z-YnUCQbmOc6dL6YT9Nc",
+  },
+
   openGraph: {
     title: "Jeseem | Developer & Creator",
     description:
@@ -69,7 +76,7 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              console.log("%c🚀 Hey there, fellow developer! Like what you see? Let's connect. — Jeseem", 
+              console.log("%c🚀 Hey there, fellow developer! Like what you see? Let's connect. — Jeseem",
                 "font-size: 16px; font-weight: bold; color: #0066FF; text-shadow: 0 0 10px #00D4FF;"
               );
             `,
